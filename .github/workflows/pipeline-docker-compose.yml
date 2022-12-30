@@ -16,8 +16,20 @@ jobs:
           envkey_COINMARKETCAP_APIKEY: ${{ secrets.COINMARKETCAP_APIKEY }}
           envkey_MY_BOT_SECRET_TOKEN: ${{ secrets.MY_BOT_SECRET_TOKEN }}
           envkey_PYTHONUNBUFFERED: 1
-          file_name: .env
+          directory: ${{ github.path }}
+          file_name: secrets.env
           fail_on_empty: true
+      
+      - uses: actions/checkout@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: ${{ github.path }}/secrets.env
+          target: "secrets.env"
           
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.6 
@@ -28,3 +40,4 @@ jobs:
           port: 22
           script: |
             whoami
+            c
