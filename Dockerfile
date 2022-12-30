@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM arm64v8/python
 
 RUN pip install python-telegram-bot requests
 
