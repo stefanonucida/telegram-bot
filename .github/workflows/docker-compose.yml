@@ -1,0 +1,21 @@
+name: DockerCompose
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*.*.*"]
+
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v0.1.6 
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            whoami
