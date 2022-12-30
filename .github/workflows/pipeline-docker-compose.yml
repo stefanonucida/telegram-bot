@@ -34,7 +34,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           source: "./secrets.env"
-          target: "/home/ubuntu/secrets.env"
+          target: "/home/ubuntu/"
           
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.6 
@@ -45,4 +45,4 @@ jobs:
           port: 22
           script: |
             whoami
-            c
+            cat secrets.env
