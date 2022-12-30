@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
-          source: "secrets.env"
+          source: "/github/workspace/secrets.env"
           target: "secrets.env"
           
       - name: SSH Remote Commands
