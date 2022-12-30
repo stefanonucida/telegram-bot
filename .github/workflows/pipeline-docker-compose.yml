@@ -15,8 +15,7 @@ jobs:
         with: 
           envkey_COINMARKETCAP_APIKEY: ${{ secrets.COINMARKETCAP_APIKEY }}
           envkey_MY_BOT_SECRET_TOKEN: ${{ secrets.MY_BOT_SECRET_TOKEN }}
-          envkey_PYTHONUNBUFFERED: 1
-          directory: ${{ github.path }}
+          envkey_PYTHONUNBUFFERED: 1 
           file_name: secrets.env
           fail_on_empty: true
       
@@ -28,7 +27,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
-          source: ${{ github.path }}/secrets.env
+          source: "secrets.env"
           target: "secrets.env"
           
       - name: SSH Remote Commands
