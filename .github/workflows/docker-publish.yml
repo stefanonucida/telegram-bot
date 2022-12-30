@@ -14,7 +14,7 @@ on:
     tags: [ 'v*.*.*' ] 
 
 env:
-  imgname: "mydockerimage"
+  imgname: "mytelegrambot"
   tagversion: "latest" #"${{github.sha}}"
 
 jobs:
