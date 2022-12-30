@@ -1,6 +1,7 @@
-FROM arm64v8/python
+FROM python:3.8
 
-RUN pip install python-telegram-bot requests
+RUN pip install python-telegram-bot 
+RUN pip install requests
 
 COPY . /app
 WORKDIR /app
